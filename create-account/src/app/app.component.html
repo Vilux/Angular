@@ -1,0 +1,31 @@
+
+<!-- Get and show list -->
+<div *ngFor="let clientaccount of clientaccounts">
+  Account ID: {{clientaccount.accountID}} Client ID: {{clientaccount.clientID}} Balance: {{clientaccount.balance}}
+  <a href='#' (click)='deleteClientAccount(clientaccount.clientID, clientaccount.accountID)'>Delete</a>&nbsp;
+  <input type='text' (change)="balanceUpdate($event)" />&nbsp;
+  <button (click)="editClientAccount(clientaccount.clientID, clientaccount.accountID, editBalance)">Update Balance</button>
+  </div> 
+   <br/>
+   
+  <!-- Create single item -->
+  <br/>
+  <h2>Create New Account</h2>
+  Account ID: <input type="text" [(ngModel)]="newAccId"><br/>
+  Client ID: <input type="text" [(ngModel)]="newCliId"><br/>
+  Balance: <input type="text" [(ngModel)]="newItemBalance"><br/>
+  <button (click)="createClientAccount(newItemBalance, newCliId, newAccId)">Create</button><br/>
+  <br/>
+  <h2>Get Account Info</h2><br/>
+  Account ID: <input type="text" [(ngModel)]="accountId"><br/>
+  Client ID: <input type="text" [(ngModel)]="clientId"><br/>
+  <button (click)="getClientAccount(accountId, clientId)">Get Info</button><br/>
+  <br/>
+  <div *ngFor="let account of accountinfo">
+    First Name: {{account.FirstName}}<br/>
+    Last Name: {{account.LastName}}<br/>
+    Description: {{account.Description}}<br/>
+    Balance: {{account.Balance}}<br/>
+  </div>
+   
+  
